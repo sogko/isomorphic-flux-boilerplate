@@ -27,7 +27,7 @@
 
 ## TL;DR
 
-Use with `iojs^1.7.0`, clone the repo, `npm install` and `npm run dev`.
+Use with `iojs^1.8.0` or `nodejs^0.12.0`, clone the repo, `npm install` and `npm run dev`.
 
 Learn React ([react-prime-draft](https://github.com/mikechau/react-primer-draft)), learn Flux and Alt ([alt guide](http://alt.js.org/guide/)).
 
@@ -155,6 +155,8 @@ It's super easy to do with [nvm](https://github.com/creationix/nvm):
 * `$ nvm use iojs`
 * `$ nvm alias default iojs` (to make `node` default to `iojs`)
 
+But it works well with `nodejs^0.12.0` as well :)
+
 After that, you will just need to clone the repo and install dependancies:
 
 * `$ git clone -o upstream https://github.com/iam4x/isomorphic-flux-boilerplate.git app`
@@ -189,6 +191,21 @@ You can fetch the upstream branch and merge it into your master:
 * `$ git fetch upstream`
 * `$ git merge upstream/master`
 * `$ npm install`
+
+### Run in production
+
+Build the project first:
+
+* `$ npm run build`
+
+Then start the koa server:
+
+* `$ NODE_ENV=production node server/index.js` (iojs)
+* `$ NODE_ENV=production node --harmony server/index.js` (nodejs 0.12.x)
+
+You can also use `processes.json` to run the application with [PM2 Monitor](https://github.com/Unitech/pm2) on your production server (customize it for your use):
+
+* `$ pm2 start processes.json`
 
 ### Learn more
 
